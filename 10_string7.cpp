@@ -22,7 +22,10 @@ int main(){
 	//pero colocando un asterisco entre cada caracter de cada string.
 	//sin alterar los string dentro del arreglo
 	for( int i = 0; i < end(frutas)-begin(frutas); i++ ){
-		
+		for( int j = 0; j < frutas[i].length(); j++ ){
+			cout << frutas[i][j] << "*";
+		}
+		cout << endl;
 	}
 	
 	return 654;
