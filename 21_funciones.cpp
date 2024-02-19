@@ -3,6 +3,7 @@
 #include<cmath>
 #include<iomanip>
 #include<time.h>
+#include<algorithm>
 
 using namespace std;
 
@@ -17,6 +18,9 @@ int minimo(int a, int b, int c);
 double minimo(double a, double b, double c);
 float minimo(float a, float b, float c);
 int aleatorio(int minimo, int maximo);
+bool estaEnMayusculas(string cadena);
+int buscar(char buscado, string cadena);
+int buscarEnArreglo(string buscado, string arreglo[], int items);
 
 int main(){
 	cout << elevar(2,8) << endl;
@@ -49,6 +53,31 @@ int main(){
 	
 	for( int i = 1; i < 10; i++ )
 		cout << "numero al azar entre 6 y 90: " << aleatorio(6,90) << endl;
+	
+	cout << estaEnMayusculas("pera") << endl;
+	cout << estaEnMayusculas("Pera") << endl;
+	cout << estaEnMayusculas("PERA") << endl;
+	
+	string fruta = "PERA";
+	cout << fruta << " ";
+	
+	if( !estaEnMayusculas(fruta) )
+		cout << "NO ";
+	
+	cout << "esta en mayusculas" << endl;
+	
+	cout << buscar('M',"manzana") << endl;
+	cout << buscar('m',"manzana") << endl;
+	cout << buscar('z',"manzana") << endl;
+	cout << buscar('X',"manzana") << endl;
+	cout << buscar(' ',"pera y manzana") << endl;
+	
+	cout << "**************************" << endl;
+	string a[] = {"uva","pera","manzana"};
+	cout << buscarEnArreglo("uva",a,end(a)-begin(a)) << endl;
+	cout << buscarEnArreglo("sandia",a,end(a)-begin(a)) << endl;
+	cout << buscarEnArreglo("manzana",a,end(a)-begin(a)) << endl;
+	cout << buscarEnArreglo("UVA",a,end(a)-begin(a)) << endl;
 	
 	return 456;
 }
@@ -142,13 +171,47 @@ int aleatorio(int minimo, int maximo){
 
 /*8. Escriba una funcion que devuelva true si una cadena
 de texto esta escrita toda en mayusculas y false si no es así.*/
+bool estaEnMayusculas(string cadena){
+	string copia = cadena;
+	transform(copia.begin(),copia.end(),copia.begin(),::toupper);
+	if( cadena == copia )
+		return true;
+	else
+		return false;
+}
 
+/*9. Escriba una funcion a la cual se le proporcione como
+parametros un caracter y una cadena de texto, dicha funcion
+debera devolver un entero con la posicion de la primer coincidencia
+en la que fue encontrado el caracter proporcionado dentro de
+la cadena de texto proporcionada, si el caracter no es
+encontrado entonces devolver -1.
+No tiene permitido utilizar la funcion find del string.*/
+int buscar(char buscado, string cadena){
+	for( int i = 0; i < cadena.length(); i++ ){
+		if( buscado == cadena[i] )
+			return i;	//return hace break
+	}
+	//si llego hasta aqui es porque termino el recorrido
+	//y no encontró nada
+	return -1;
+}
 
-
-
-
-
-
+/*10. Escriba una funcion que reciba como parametros un string y un
+arreglo de string, dicha funcion debera buscar el string proporcionado
+dentro arreglo, si la cadena es encontrada entonces la funcion
+retornara un numero entero con la posicion de la primer
+coincidencia en la que se encontró, si no se encuentra
+nada entonces retornar -1.*/
+int buscarEnArreglo(string buscado, string arreglo[], int items){
+	for( int i = 0; i < items; i++ ){
+		if( buscado == arreglo[i] )
+			return i;
+	}
+	//si llego hasta aqui es porque termino el recorrido
+	//y no encontró nada
+	return -1;
+}
 
 
 
