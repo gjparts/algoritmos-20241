@@ -2,6 +2,7 @@
 #define _USE_MATH_DEFINES
 #include<cmath>
 #include<iomanip>
+#include<time.h>
 
 using namespace std;
 
@@ -12,6 +13,10 @@ bool esMultiplo(int dividendo, int divisor);
 void imprimirRectangulo(int largo, int ancho, char caracter);
 double areaCirculo(double radio);
 float  areaCirculo(float radio);
+int minimo(int a, int b, int c);
+double minimo(double a, double b, double c);
+float minimo(float a, float b, float c);
+int aleatorio(int minimo, int maximo);
 
 int main(){
 	cout << elevar(2,8) << endl;
@@ -30,6 +35,20 @@ int main(){
 	cout << r1 << endl;	
 	cout << setprecision(30) << areaCirculo(r1) << endl;
 	cout << setprecision(8) << areaCirculo(r2) << endl;
+	
+	int n1 = 8, n2 = 9, n3 = 1;
+	cout << minimo(n1,n2,n3) << endl;
+	float c1 = 4.6546456565656, c2 = 3.543654353, c3 = 8.9882623636;
+	cout << minimo(c1,c2,c3) << endl;
+	double x1 = M_PI*100, x2 = M_PI*10, x3 = M_PI*1.5;
+	cout << minimo(x1,x2,x3) << endl;
+	
+	cout << minimo(45.4, 5.6, 9.7) << endl;
+	//importante:
+	srand(time(NULL));
+	
+	for( int i = 1; i < 10; i++ )
+		cout << "numero al azar entre 6 y 90: " << aleatorio(6,90) << endl;
 	
 	return 456;
 }
@@ -93,6 +112,43 @@ float  areaCirculo(float radio){
 el menor de tres números, dicha funcion debera poder
 funcionar con tres numeros enteros,
 tres numeros double o tres numeros float.*/
+//sobrecarga de funciones y aplicar Don't Repeat Yourself
+int minimo(int a, int b, int c){
+	//cout << "minimo con int" << endl;
+	double x = a, y = b, z = c;
+	//mandar a llamar la funcion con mayor precision
+	return minimo(x,y,z);
+}
+double minimo(double a, double b, double c){
+	//cout << "minimo con double" << endl;
+	if( a <= b && a <= c ) return a;
+	if( b <= a && b <= c ) return b;
+	if( c <= b && c <= a ) return c;
+}
+float minimo(float a, float b, float c){
+	//cout << "minimo con float" << endl;
+	double x = a, y = b, z = c;
+	//mandar a llamar la funcion con mayor precision
+	return minimo(x,y,z);
+}
+
+/*7. Escriba una funcion que reciba dos numeros enteros
+como parametros, uno sera el minimo y el otro el maximo,
+la funcion debera retornar un numero aleatorio entero que
+se encuentre entre dichos numeros.*/
+int aleatorio(int minimo, int maximo){
+	return rand()%(maximo-minimo+1)+minimo;
+}
+
+/*8. Escriba una funcion que devuelva true si una cadena
+de texto esta escrita toda en mayusculas y false si no es así.*/
+
+
+
+
+
+
+
 
 
 
