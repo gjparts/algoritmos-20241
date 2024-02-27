@@ -1,9 +1,11 @@
 #include<iostream>
+#include<ctime>
 using namespace std;
 
 //prototipo
 void dividirValoresEntreDos( float *arreglo, int tamano );
 void arregloAlCuadrado(double *arreglo, int tamano);
+void llenarArreglo(int *arreglo, int tamano);
 
 int main(){
 	/*Uso de apuntadores en arreglos, considerar:
@@ -40,7 +42,22 @@ int main(){
 	for( int i = 0; i < end(arreglo2)-begin(arreglo2); i++ )
 		cout << arreglo2[i] << endl;
 	
+	int arreglo3[5];
+	cout << "***********************" << endl;
+	llenarArreglo(arreglo3, end(arreglo3)-begin(arreglo3));
+	for( int i = 0; i < end(arreglo3)-begin(arreglo3); i++ )
+		cout << arreglo3[i] << endl;
+	
 	return 123;
+}
+
+/*hacer una funcion void que llene todos los elementos de
+un arreglo apuntado de numeros enteros con numeros
+al azar entre 1 y 99*/
+void llenarArreglo(int *arreglo, int tamano){
+	srand(time(NULL)); //srand va antes y fuera de la estructura de repeticion
+	for( int i = 0; i < tamano; i++ )
+		arreglo[i] = rand()%(99-1+1)+1;
 }
 
 /*hacer una funcion void que reciba un arreglo de numeros float como apuntador
@@ -59,6 +76,14 @@ void arregloAlCuadrado(double *arreglo, int tamano){
 	for( int i = 0; i < tamano; i++ )
 		arreglo[i] = arreglo[i]*arreglo[i];
 }
+
+
+
+
+
+
+
+
 
 
 
