@@ -68,9 +68,21 @@ int main(){
 	//entonces no existira un constructor sin parametros
 	//a menos que Usted lo defina:
 	//Carro *c0 = new Carro();
-	Carro *c1 = new Carro("Nissan","Sentra","Blanco",2005);
+	Carro *c1 = new Carro("Nissan","Sentra","Blanco",2012);
+	c1->imprimir();
+	cout << "ecoTasa para c1: " << c1->ecoTasa() << endl;
+	
 	Carro *c2 = new Carro("Honda","Civic","Negro",2004);
-	Carro *c3 = new Carro("Pontiac","Vibe","Azul",2007);
+	c2->imprimir();
+	
+	Carro *c3 = new Carro("Pontiac","Vibe","Azul",0);
+	//cambiarle el año
+	//c3->anio = 2009; anio es private no se puede modificar desde aqui (ambito externo)
+	//cout << c3->anio << endl; anio es private tampoco se puede leer desde ambito externo
+	c3->setAnio(2009);
+	//c3->setAnio(1930); esto genera una exception (throw)
+	c3->imprimir();
+	cout << "anio de c3: " << c3->getAnio() << endl;
 	
 	Empleado *e1 = new Empleado();
 	e1->imprimir();
