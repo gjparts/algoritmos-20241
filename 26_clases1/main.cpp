@@ -1,6 +1,7 @@
 #include<iostream>
 #include "Persona.h"
 #include "Carro.h"
+#include "Empleado.h"
 using namespace std;
 
 int main(){
@@ -70,6 +71,17 @@ int main(){
 	Carro *c1 = new Carro("Nissan","Sentra","Blanco",2005);
 	Carro *c2 = new Carro("Honda","Civic","Negro",2004);
 	Carro *c3 = new Carro("Pontiac","Vibe","Azul",2007);
+	
+	Empleado *e1 = new Empleado();
+	e1->imprimir();
+	Empleado *e2 = new Empleado("Gerardo Portillo",42,'M');
+	e2->imprimir();
+	e2->saludar(false);
+	Empleado *e3 = new Empleado("Josue Antonio",11,'M',0.00,'T');
+	e3->imprimir();
+	e3->saludar(true);
+	
+	
 	
 	return 777;
 }
