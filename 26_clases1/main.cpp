@@ -75,7 +75,7 @@ int main(){
 	Carro *c2 = new Carro("Honda","Civic","Negro",2004);
 	c2->imprimir();
 	
-	Carro *c3 = new Carro("Pontiac","Vibe","Azul",0);
+	Carro *c3 = new Carro("Pontiac","Vibe","Azul",2007);
 	//cambiarle el año
 	//c3->anio = 2009; anio es private no se puede modificar desde aqui (ambito externo)
 	//cout << c3->anio << endl; anio es private tampoco se puede leer desde ambito externo
@@ -85,11 +85,14 @@ int main(){
 	cout << "anio de c3: " << c3->getAnio() << endl;
 	
 	Empleado *e1 = new Empleado();
+	e1->setEdad(45);
+	cout <<  "edad de e1: " << e1->getEdad() << endl;
 	e1->imprimir();
 	Empleado *e2 = new Empleado("Gerardo Portillo",42,'M');
 	e2->imprimir();
 	e2->saludar(false);
-	Empleado *e3 = new Empleado("Josue Antonio",11,'M',0.00,'T');
+	Empleado *e3 = new Empleado("Josue Antonio",18,'M',0.00,'T');
+	e3->setSalario(10000);
 	e3->imprimir();
 	e3->saludar(true);
 	
