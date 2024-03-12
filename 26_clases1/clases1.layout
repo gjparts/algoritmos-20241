@@ -12,12 +12,12 @@ CursorRow=40
 TopLine=9
 LeftChar=1
 [Editor_2]
-CursorCol=3
-CursorRow=16
-TopLine=10
+CursorCol=18
+CursorRow=46
+TopLine=40
 LeftChar=1
 [Editor_3]
 CursorCol=4
 CursorRow=49
-TopLine=30
+TopLine=36
 LeftChar=1

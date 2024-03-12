@@ -49,7 +49,7 @@ class Carro{
 			if( anio >= 1970 )
 				this->anio = anio; //se acepta y se escribe en el atributo
 			else
-				throw invalid_argument("Anio debe ser >= 1970");
+				throw invalid_argument("Anio debe ser >= 1970"); //stdexcept
 		}
 		//metodo get: leer el anio
 		int getAnio(){
